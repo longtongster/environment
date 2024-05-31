@@ -1,0 +1,30 @@
+# This file creates an environment with packages I always use in my projects
+#
+# run: conda env create --file environment.yml
+# conda remove -n ENV_NAME --all
+#
+# install DVC:
+# conda install -c conda-forge mamba # installs much faster than conda
+# mamba install -c conda-forge dvc
+
+name: sacha
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - mamba
+  - jupyter
+  - pytorch 
+  - torchvision 
+  - torchaudio 
+  - pytorch-cuda=11.8
+  - pip
+  - pip:
+    - mlflow
