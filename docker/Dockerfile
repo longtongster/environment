@@ -1,0 +1,38 @@
+# command to build the image 
+# docker image build . -t my-example --build-arg="USER_NAME=sacha" --build-arg="USER_ID=1001" -f .\docker\Dockerfile
+
+# Run container 
+# docker container run --rm -it my-example bash
+
+# changed below to use anaconda3 image instead of python:3.10-slim
+FROM continuumio/anaconda3
+
+ARG USER_ID
+ARG USER_NAME
+
+# send stdout an stderr directly to terminal (logs) 
+ENV PYTHONUNBUFFERED=1
+
+# environment varaible used to create home directory of user.
+ENV HOME=/home/${USER_NAME}
+
+# Creata a virtual environment from the environment.yml file in my folder
+# NOTE: it took about 10 minutes to resolve the dependencies and install the environment on this container.
+# MAYBE: apt-get update -y, apt-get upgrade -y and then update anaconda?
+COPY environment.yml .
+RUN conda env create -f environment.yml
+
+# create a system user group - use `cat /etc/group` to see that the group is created
+RUN addgroup --system --gid ${USER_ID} ${USER_NAME}
+
+# create a user and it the group created
+# the -m flag creates a home direcotry 
+RUN useradd --system -m --no-log-init --home-dir ${HOME} --uid ${USER_ID} --gid ${USER_NAME} --groups ${USER_NAME} ${USER_NAME}
+
+# change owernship of the HOME directory to the created user
+# remark: running it with and without the command below it seems the ownership is already there
+RUN chown -R ${USER_NAME}:${USER_NAME} ${HOME}
+
+# create a directory and change ownership of the /app and /tmp folders
+RUN mkdir -p /app 
+RUN chown -R ${USER_NAME}:${USER_NAME} /app /tmp
