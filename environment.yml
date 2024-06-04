@@ -18,13 +18,14 @@ dependencies:
   - pandas
   - numpy
   - scikit-learn
-  - matplotlib
-  - mamba
-  - jupyter
-  - pytorch 
-  - torchvision 
-  - torchaudio 
-  - pytorch-cuda=11.8
-  - pip
+  - flask
+ # - matplotlib
+ # - mamba
+ # - jupyter
+ # - pytorch 
+ # - torchvision 
+ # - torchaudio 
+ # - pytorch-cuda=11.8
+ # - pip
   - pip:
     - mlflow
