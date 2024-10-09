@@ -1,5 +1,7 @@
 # Introduction
 
+A good source is `https://medium.com/hydroinformatics/how-to-make-your-python-environment-reproducible-common-practices-conda-environment-de28195b74de`
+
 PART 1:
 
 In quite some cases the same packages are required in a virtual conda environment. For this an environment.yml file was created with the basis packages that are always required. This file can be adjusted to include different packages specific for your need.
@@ -18,6 +20,14 @@ Run the following command the create a conda environment
 To remove an environment run:
 
 `conda remove -n ENV_NAME --all`
+
+## Update an environment
+
+You can update the `environment.yml` and then run
+
+`conda env update -n ENV_NAME --file environment.yml`
+
+this will update the environment.
 
 ## Docker image
 
