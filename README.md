@@ -29,6 +29,25 @@ You can update the `environment.yml` and then run
 
 this will update the environment.
 
+## List revisions
+
+Conda keeps track environment revisions.
+
+`conda list --revision`
+
+you can revert to a previous state using 
+
+`conda install --revision <revision-number>`
+
+where <revision-number> is the revision you want to turn back to.
+
+The command will first display the packages that were installed after this revision and will be removed to go back to what the environment was, immediately before.
+
+Then the command will display all the packages that will be removed (the previous package in the environment.yml file and also their dependencies)
+
+**remark**:
+In some cases installation with conda are not always succesfull. Leaving them in the current environment might pollute your environment. This is a clear way to go back.
+
 ## Docker image
 
 An example to build the image `my-example` that creates a user `tommy` run the following command.
