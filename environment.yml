@@ -15,7 +15,7 @@ channels:
   - nvidia
 dependencies:
   - python=3.10
-  - pandas
+  - pandas>=2.2
   - numpy
   - scikit-learn
   - flask
