@@ -52,6 +52,18 @@ Then the command will display all the packages that will be removed (the previou
 **remark**:
 In some cases installation with conda are not always succesfull. Leaving them in the current environment might pollute your environment. This is a clear way to go back.
 
+## Lock your environment
+
+The lock file is a file that contains a list of dependencies and their exact version numbers for a specific environment. The lockfile is used to ensure that the environment can be recreated in the future, even if the dependencies or their versions are no longer available.
+
+For this you have to install `conda-lock`
+
+to create the lock file from the `environment.yml` type
+
+`conda lock`
+
+I have to look into to this as it is not explained how to recreate an environment from the lock file. 
+
 ## Docker image
 
 An example to build the image `my-example` that creates a user `tommy` run the following command.
