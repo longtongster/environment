@@ -1,6 +1,10 @@
 # Introduction
 
-A good source is `https://medium.com/hydroinformatics/how-to-make-your-python-environment-reproducible-common-practices-conda-environment-de28195b74de`
+A good source is 
+
+`https://medium.com/hydroinformatics/how-to-make-your-python-environment-reproducible-common-practices-conda-environment-de28195b74de`
+
+This post also explains more about `mamba` since conda is oh so slow...
 
 PART 1:
 
