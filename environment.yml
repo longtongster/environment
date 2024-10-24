@@ -20,7 +20,9 @@ dependencies:
   - pandas>=2.2
   - numpy
   - scikit-learn
-  - flask
+  - black
+  - flake8
+  - isort
  # - matplotlib
  # - mamba
  # - jupyter
